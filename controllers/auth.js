@@ -3,7 +3,6 @@ const User = require("./../modals/user");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-
 //signup route handler
 exports.signup = async (req,res) => {
     try{
