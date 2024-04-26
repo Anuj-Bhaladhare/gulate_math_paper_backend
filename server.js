@@ -18,4 +18,4 @@ app.use("/api/v1", router)
 
 app.listen( port, () => {
     console.log(`Server started at port number ${port}`)
-})
+});
