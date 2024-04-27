@@ -79,9 +79,10 @@ exports.login = async (req,res) => {
         }
 
         const payload = {
-            email:user.email,
-            id:user._id,
-            role:user.role,
+            email:user?.email,
+            name:user?.firstName,
+            id:user?._id,
+            role:user?.role,
         };
 
         const userDetails = {
@@ -89,8 +90,6 @@ exports.login = async (req,res) => {
             lastName: user?.lastName,
             email: user?.email,
             role: user?.role,
-            createdAt:  user?.createdAt,
-            updatedAt:  user?.updatedAt,
         }
         //verify password & generate a JWT token
         if(await bcrypt.compare(password, user.password) ) {
@@ -128,37 +127,37 @@ exports.login = async (req,res) => {
     }
 }
 
-exports.getUserDetails = async (req, res) => {
-    try{
-        const { email } = req.params;
+// exports.getUserDetails = async (req, res) => {
+//     try{
+//         const { email } = req.params;
 
-        const existingUser = await User.findOne({email});
+//         const existingUser = await User.findOne({email});
 
-        const data = {
-            firstName: existingUser?.firstName,
-            lastName: existingUser?.lastName,
-            email: existingUser?.email,
-            role: existingUser?.role,
-            createdAt:  existingUser?.createdAt,
-            updatedAt:  existingUser?.updatedAt,
-        }
+//         const data = {
+//             firstName: existingUser?.firstName,
+//             lastName: existingUser?.lastName,
+//             email: existingUser?.email,
+//             role: existingUser?.role,
+//             createdAt:  existingUser?.createdAt,
+//             updatedAt:  existingUser?.updatedAt,
+//         }
 
-        if(existingUser){
-            return res.status(200).json({
-                success: true,
-                massage: "user get success fully...",
-                user: data
-            })
-        } else {
-            return res.status(404).json({
-                success: false,
-                massage: "User not exist"
-            })
-        }
-    } catch (err) {
-        return res.status(500).json({
-            success: false,
-            massage: "user not found"
-        })
-    }
-}
+//         if(existingUser){
+//             return res.status(200).json({
+//                 success: true,
+//                 massage: "user get success fully...",
+//                 user: data
+//             })
+//         } else {
+//             return res.status(404).json({
+//                 success: false,
+//                 massage: "User not exist"
+//             })
+//         }
+//     } catch (err) {
+//         return res.status(500).json({
+//             success: false,
+//             massage: "user not found"
+//         })
+//     }
+// }
