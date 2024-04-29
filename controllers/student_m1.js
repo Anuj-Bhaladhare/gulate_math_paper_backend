@@ -64,6 +64,7 @@ exports.getAllStudent_M1 = async (req, res) => {
 }
 
 exports.getStudent_M1 = async (req, res) => {
+    console.log("req.params", req.params);
     try{
         const { _id } = req.params;
         if(!_id){
@@ -231,6 +232,8 @@ exports.getBacklogStudent_M1 = async (req, res) => {
 
 exports.updateBacklogStudent_M1 = async (req, res) => {
     try {
+        console.log("req.params", req.params);
+        console.log("req.body", req.body);
         const { _id } = req.params;
         const { name, email, mobile, feesh, amount, subject, mark, year, PassinsStatus, progresh } = req.body;
 
