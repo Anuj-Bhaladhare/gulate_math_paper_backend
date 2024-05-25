@@ -3,45 +3,45 @@ const mongoose = require("mongoose");
 const student_m1_Schema = new mongoose.Schema({
     name: {
         type: String,
-        require: true,
+        // require: true,
     },
     email: {
         type: String,
-        trim: true
+        // trim: true
     },
     mobile: {
         type: Number,
-        require: true
+        // require: true
     },
     feesh: {
         type: String,
-        require: true,
-        enum: ["Paid", "Pending", "Unpaid"]
+        // require: true,
+        enum: ["Paid", "Pending", "Not Paid"]
     },
     amount: {
         type: Number,
-        require: true
+        // require: true
     },
     subject: {
         type: String,
-        require: true,
-        enum:["Mathmatics 1", "Mathmatics 2", "Mathmatics 3"]
+        // require: true,
+        enum:["Mathamatics 1", "Mathamatics 2", "Mathamatics 3"]
     },
     mark: {
         type: Number,
-        trim: true
+        // trim: true
     },
     year: {
         type: String,
-        enum:["1st Year", "2nd Year", "3rd Year"]
+        enum:["1st Year", "2nd Year", "3rd Year", "4th Year"]
     },
     PassinsStatus: {
         type: String,
-        enum: ["Pass", "Fail"],
+        enum: ["Pass", "Fail", "Not Appear"],
     },
     progresh: {
         type: String,
-        enum: ["Good", "Poore", "Bad"]
+        enum: ["Good", "Poor", "Average", "Bad", "Not Appear"]
     },
     createdAt: {
         type: Date,
